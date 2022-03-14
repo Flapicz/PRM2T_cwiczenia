@@ -5,7 +5,7 @@ import java.util.List;
 
 public class AverageExample {
 
-    private List<Integer> values = new ArrayList<>();
+    private List<Double> values = new ArrayList<>();
 
     public AverageExample(String[] args) {
         parseArgs(args);
@@ -13,7 +13,7 @@ public class AverageExample {
 
     private void parseArgs(String[] args) {
         for (int i = 0; i < args.length; ++i) {
-            values.add(Integer.parseInt(args[i]));
+            values.add(Double.parseDouble(args[i]));
         }
         /* try alternatively:
         for (String arg : args) {
@@ -22,8 +22,8 @@ public class AverageExample {
     }
 
     public double calculateAverage() {
-        int sum = 0;
-        for (Integer value : values) {
+        double sum = 0;
+        for (Double value : values) {
             sum += value;
         }
         return sum / values.size();
