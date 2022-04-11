@@ -1,15 +1,24 @@
 package prm2t.lab3;
 
-//– reprezentująca klientów sklepu, wymagane pola: identyfikator (np. nazwisko
-//albo PESEL), koszyk;
 
 public class Klient {
 
-    private int pesel;
+    int id;
     Koszyk koszyk;
 
-    Klient(int pesel){
-        this.pesel = pesel;
+    Klient(int id){
+        this.id = id;
         koszyk = new Koszyk();
+    }
+
+    public void dodajProdukt(Produkt produkt, int ilosc){
+        this.koszyk.dodajProdukt(produkt,ilosc);
+    }
+
+    /** Usuwa produkt z koszyka
+     * @return cena usunietego produktu */
+    public float skasujProdukt(){
+        float cena = this.koszyk.ll.getLast().liczbaSztukProduktu * this.koszyk.ll.removeLast().cena;
+        return cena;
     }
 }

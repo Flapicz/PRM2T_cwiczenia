@@ -3,7 +3,7 @@ import java.util.LinkedList;
 
 
 public class Koszyk {
-    private LinkedList<ProduktWKoszyku> ll;
+    protected LinkedList<ProduktWKoszyku> ll;
 
     Koszyk(){
         ll = new LinkedList<>();
@@ -14,20 +14,11 @@ public class Koszyk {
         return ll.size();
     }
 
-    //public float sprawdzWartosc(){return }
-
-    //public ? sprawdzListe(){}
 
     public void dodajProdukt(Produkt produkt, int ilosc){
         ProduktWKoszyku produktWKoszyku = new ProduktWKoszyku(produkt, ilosc);
         ll.addLast(produktWKoszyku);
     }
 
-    /** Usuwa produkt z koszyka
-     * @return cena usunietego produktu */
-    public float skasujProdukt(){
-        float cena = ll.removeLast().cena;
-        return cena;
-    }
 
 }
