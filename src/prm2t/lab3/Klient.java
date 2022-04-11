@@ -21,4 +21,13 @@ public class Klient {
         float cena = this.koszyk.ll.getLast().liczbaSztukProduktu * this.koszyk.ll.removeLast().cena;
         return cena;
     }
+
+    public void zawartoscKoszyka(){
+        String string = "";
+        for(int i = koszyk.ll.size()-1; i>=0; i--){
+            ProduktWKoszyku produkt = koszyk.ll.get(i);
+            string = string + "\n" + produkt.liczbaSztukProduktu + " " + produkt.nazwa;
+        }
+        System.out.println("Klient " + id + " ma w koszyku:" + string);
+    }
 }

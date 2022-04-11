@@ -10,6 +10,4 @@ public class ProduktWKoszyku extends Produkt {
         cena = produkt.cena;
         nazwa = produkt.nazwa;
     }
-
-    public int sprawdzIloscProduktu(){return liczbaSztukProduktu;}
 }

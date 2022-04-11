@@ -9,11 +9,6 @@ public class Koszyk {
         ll = new LinkedList<>();
     }
 
-    /** @return ilosc grup produktow w koszyku */
-    public int sprawdzIlosc(){
-        return ll.size();
-    }
-
 
     public void dodajProdukt(Produkt produkt, int ilosc){
         ProduktWKoszyku produktWKoszyku = new ProduktWKoszyku(produkt, ilosc);

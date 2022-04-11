@@ -6,17 +6,14 @@ import java.util.*;
 
 public class Main {
 
-
-    public static void obsluz(){
-        Klient klient = kolejka.getFirst();
+    public static void obsluz(Klient klient){
         float suma = 0;
-        for (int dlugosc = klient.koszyk.ll.size(); dlugosc > 0; dlugosc--){
+        klient.zawartoscKoszyka();
+        for (int i = klient.koszyk.ll.size(); i > 0; i--){
             suma = suma + klient.skasujProdukt();
         }
-        System.out.println("Klient"+ klient.id + " ma do zaplacenia "+ suma + "zl");
+        System.out.println("Klient"+ klient.id + " ma do zaplacenia "+ suma + "zl" + "\n");
     }
-
-
 
     public static void main(String[] args){
         Produkt chleb = new Produkt("Chleb",3.5f );
@@ -66,16 +63,20 @@ public class Main {
         klient1.dodajProdukt(chleb,3);
         klient1.dodajProdukt(czekolada,1);
         klient1.dodajProdukt(mleko, 4);
-        klient1.dodajProdukt(czekolada, 1);
-        kolejka.addFirst(klient1);
+        klient1.dodajProdukt(woda, 1);
+        kolejka.addLast(klient1);
 
         klient2.dodajProdukt(woda, 5);
         klient2.dodajProdukt(chleb, 1);
         klient2.dodajProdukt(baton, 2);
-        kolejka.addFirst(klient2);
+        kolejka.addLast(klient2);
 
-        obsluz();
-        obsluz();
+        klient3.dodajProdukt(sok, 5);
+        kolejka.addLast(klient3);
+
+        obsluz(kolejka.removeFirst());
+        obsluz(kolejka.removeFirst());
+        obsluz(kolejka.removeFirst());
 
     }
 }
