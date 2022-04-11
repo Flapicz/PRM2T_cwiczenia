@@ -10,6 +10,7 @@ public class Zad2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Map<Character, Integer> map = new HashMap<>();
+        System.out.println("Podaj tekst");
         String text = scanner.nextLine();
         text = text.toLowerCase(Locale.ROOT);
         String[] ar = text.split("");
