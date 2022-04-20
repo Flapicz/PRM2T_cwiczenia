@@ -58,12 +58,8 @@ public class WhiteCoherentImageArea {
             nP = newPixels(x,y,img);
             for(int i =0; i<nP.size(); i++){
                 int[] element = (int[]) nP.get(i);
-                Object[] array = set.toArray();
-                //if(!set.contains(element)){
-                for(int j=0; i<array.length; j++){
-                    if(array[j].equals(element)){
-                        prn("True");
-                    }
+                if(!set.contains(element)) { // NIE DZIAŁA
+                    //prn("True");
                     currentArea.add(element);
                     set.add(element);
                 }
