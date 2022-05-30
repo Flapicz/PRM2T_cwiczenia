@@ -1,4 +1,4 @@
-package prm2t.lab6;
+package prm2t.lab6.Zad1;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -29,7 +29,7 @@ public class InputPanel extends JFrame {
                     clear();
                     setVisible(false);
                 }else{
-                    input = "";
+                    //input = "";
                     clear();
                     errorLabel.setText("Niepoprawny input");
                 }
@@ -40,7 +40,7 @@ public class InputPanel extends JFrame {
         cancelButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                input = "";
+                //input = "";
                 clear();
                 setVisible(false);
             }

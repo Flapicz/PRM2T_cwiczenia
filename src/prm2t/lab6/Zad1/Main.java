@@ -1,4 +1,4 @@
-package prm2t.lab6;
+package prm2t.lab6.Zad1;
 
 import java.awt.*;
 
