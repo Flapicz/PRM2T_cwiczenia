@@ -15,7 +15,7 @@ int best_times[PODIUM] = { //lista indeksów najszybszych czasów
     0,1,2
 };
 
-void sort() {
+void sort() { //sortowanie bąbelkowe
     int n = PODIUM;
     int t = 0;
     do {
@@ -29,7 +29,7 @@ void sort() {
     } while (n > 1);
 }
 
-void reset(){
+void reset(){ //przypisanie best_times indeksów 0,1,2
     for (int i = 0; i < PODIUM; ++i) {
         best_times[i] = i;
     }

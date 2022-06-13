@@ -26,36 +26,23 @@ record runners[TABLE_SIZE] = { //lista ulatwiajaca wpisanie danych
 
 
 
-
-void sort(record* best_times[]) {
-    int n = PODIUM;
-    record t;
-    do {
-        for (int i = 0; i < n - 1; i++)
-            if (best_times[i]->time < best_times[i + 1]->time) {
-                t = *best_times[i];
-                best_times[i] = best_times[i+1];
-                best_times[i+1] = t;
-            }
-        n = n - 1;
-    } while (n > 1);
-}
-
-//void reset(record best_times[]){
-//    for (int i = 0; i < PODIUM; ++i) {
-//        best_times[i] = i;
-//    }
-//}
-
-struct record* compute_three_best(struct record data[], int number_of_results){
+struct record* compute_three_best(struct record results[], int number_of_results){ // results - struktura z imionami i czasami
     record* best_times[number_of_results];
-    sort(best_times);
-    for (int i = 3; i < TABLE_SIZE; i++) {
-        if(data[i].time < best_times[0].time){
-            best_times[0] = data[i];
-            sort(best_times);
+    int temp;
+    record temp2{};
+
+    for (int i = 0; i < number_of_results; ++i) {
+        temp = results[0].time;
+        temp2 = results[0];
+        for (int j = 0; j < TABLE_SIZE; ++j) {
+            if(results[j].time < temp){
+                temp = results[j].time;
+                temp2 = results[j];
+            }
         }
+        best_times[i] = &temp2;
     }
+
     return *best_times;
 };
 
@@ -80,13 +67,12 @@ int main(int argc, char **argv) {
                 for(int i=PODIUM-1;i>=0;--i) {
                     std::cout << n++ << ") " << results[i].name << " - " << results[i].time << std::endl;
                 }
-                printf("\n");
                 break;
             case 2:
-                printf("Exiting program\n");
+                std::cout << "Exiting program" << std::endl;
                 return 0;
             default:
-                printf("Wrong option, choose once again\n");
+                std::cout << "Wrong option, choose once again" << std::endl;
         }
     }
     return 0;
